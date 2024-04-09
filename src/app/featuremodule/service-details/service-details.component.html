@@ -1,0 +1,117 @@
+<!--Galler Slider Section-->
+
+<!--/Galler Slider Section-->
+
+<!--Details Description  Section-->
+<section class="details-description">
+  <div class="container">
+    <div class="about-details" style="margin-top:12vh;">
+      <div class="about-headings">
+        <div class="author-img">
+          <img src="assets/img/profiles/avatar-10.jpg" alt="authorimg">
+        </div>
+        <div class="authordetails">
+          <h5>Sleep In a Room in Apartment</h5>
+        </div>
+      </div>
+      <div class="rate-details">
+        <h2>$350</h2>
+
+      </div>
+    </div>
+    <div class="descriptionlinks">
+      <div class="row">
+
+        <div class="col-lg-3">
+          <div class="callnow">
+            <a [routerLink]="routes.contact"> <i class="feather-phone-call"></i>  Call Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/Details Description  Section-->
+
+<!--Details Main  Section-->
+<div class="details-main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="card ">
+          <div class="card-header">
+                           <span class="bar-icon">
+                           <span></span>
+                           <span></span>
+                           <span></span>
+                           </span>
+            <h4>Description</h4>
+          </div>
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div>
+        </div>
+
+
+
+        <!--Gallery Section-->
+        <div class="card gallery-section ">
+          <div class="card-header ">
+            <img src="assets/img/galleryicon.svg" alt="gallery">
+            <h4>Gallery</h4>
+          </div>
+          <div class="card-body">
+            <div class="gallery-content">
+              <div class="row">
+                <ng-container *ngFor="let image of albumsOne; let i = index">
+                  <div class="col-lg-3 col-md-3 col-sm-3" *ngIf="i<12">
+                    <div class="gallery-widget">
+                      <img
+                        class="img-fluid"
+                        [src]="image.src"
+                        (click)="open(i, albumsOne)"
+                      />
+                    </div>
+
+                  </div>
+                </ng-container>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!--/Gallery Section-->
+
+
+
+
+
+      </div>
+      <div class="col-lg-3 theiaStickySidebar">
+        <div class="stickybar">
+          <div class="rightsidebar">
+            <div class="card">
+              <h4><img  src="assets/img/details-icon.svg" alt="details-icon"> Details</h4>
+              <ul>
+                <li>Contract <span>For Rent</span></li>
+                <li>Location <span>New York, USA</span></li>
+                <li>Year Built <span>1988</span></li>
+                <li>Rooms <span>3</span></li>
+                <li>Beds <span>4</span></li>
+                <li>Baths<span>8</span></li>
+                <li>Gadgets <span>6</span></li>
+                <li>Home Area <span>30sqft</span></li>
+                <li>Lot Dimensions <span>30*30*20 ft</span></li>
+                <li class="p-0">Lot Area <span>50 ft</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Details Main Section -->

@@ -1,0 +1,61 @@
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg header-nav">
+      <div class="navbar-header">
+        <a (click)="toggleSidebar()" id="mobile_btn" href="javascript:void(0);">
+          <span class="bar-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </a>
+        <a class="navbar-brand logo" [routerLink]="routes.home1">
+          <img src="assets/img/logo.svg" class="img-fluid" alt="Logo"/>
+        </a>
+      </div>
+
+
+      <ul class="nav header-navbar-rht " *ngIf="nav == true">
+        <li class="nav-item">
+          <a class="nav-link header-reg" [routerLink]="routes.signup">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <!-- TODO Link to login page  [routerLink]="routes.signup"-->
+          <a class="nav-link header-login"  [routerLink]="routes.login"> Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link header-login add-listing"
+            [routerLink]="routes.addlisting"
+          ><i class="fa-solid fa-plus"></i> Add Listing</a
+          >
+        </li>
+      </ul>
+      <ul class="nav header-navbar-rht" *ngIf="nav == false">
+        <li class="nav-item">
+          <a
+            class="nav-link header-login add-listing"
+
+          ><i class="fa-solid fa-plus"></i> Add Listing</a
+          >
+        </li>
+        <li class="nav-item dropdown has-arrow logged-item">
+          <a href="javascript:void(0);" class="dropdown-toggle profile-userlink" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            <img src="assets/img/profile-img.jpg" alt="">
+            <span>John Doe</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end">
+            <a class="dropdown-item">Dashboard</a>
+            <a class="dropdown-item">Profile Settings</a>
+            <a class="dropdown-item">Logout</a>
+          </div>
+        </li>
+      </ul>
+
+
+    </nav>
+  </div>
+</header>
+<!-- /Header -->
