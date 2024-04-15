@@ -209,7 +209,7 @@ mdc-option-active,
 }
  .searchbox-list .mat-custom-select .mat-mdc-select-arrow-wrapper {
   width: 50px!important;
-} 
+}
 .select.drop-down {
   padding: 9px 0px 9px 16px;
 }
@@ -220,7 +220,7 @@ mdc-option-active,
 }
  .select.drop-down .mat-mdc-select-arrow-wrapper {
   width: 50px!important;
-} 
+}
 .owl-stage {
   /* width: fit-content !important; */
 }
@@ -250,7 +250,7 @@ mdc-option-active,
     box-shadow: 0px 4px 14px rgba(141, 141, 141, 0.25);
     border-radius: 50%;
     margin: auto;
-    
+
 }
 .business-section .owl-next{
   position: absolute;
@@ -262,7 +262,7 @@ mdc-option-active,
     border-radius: 50%;
     margin: auto;
     right:-50px;
-    
+
 }
 .testimonial-five-section .owl-prev{
   position: absolute;

@@ -11,12 +11,12 @@
           </span>
         </a>
         <a class="navbar-brand logo" [routerLink]="routes.home1">
-          <img src="assets/img/logo.svg" class="img-fluid" alt="Logo"/>
+          <img src="assets/img/logoh2.png" class="img-fluid" alt="Logo"/>
         </a>
       </div>
 
 
-      <ul class="nav header-navbar-rht " *ngIf="nav == true">
+      <ul class="nav header-navbar-rht " *ngIf="!isLoggedIn()">
         <li class="nav-item">
           <a class="nav-link header-reg" [routerLink]="routes.signup">Sign Up</a>
         </li>
@@ -32,7 +32,7 @@
           >
         </li>
       </ul>
-      <ul class="nav header-navbar-rht" *ngIf="nav == false">
+      <ul class="nav header-navbar-rht" *ngIf="isLoggedIn()">
         <li class="nav-item">
           <a
             class="nav-link header-login add-listing"
@@ -43,13 +43,12 @@
         <li class="nav-item dropdown has-arrow logged-item">
           <a href="javascript:void(0);" class="dropdown-toggle profile-userlink" data-bs-toggle="dropdown"
              aria-expanded="false">
-            <img src="assets/img/profile-img.jpg" alt="">
-            <span>John Doe</span>
+            <span>{{user?.firstName}}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-end">
-            <a class="dropdown-item">Dashboard</a>
-            <a class="dropdown-item">Profile Settings</a>
-            <a class="dropdown-item">Logout</a>
+            <a class="dropdown-item"  [routerLink]="routes.dashboard">Dashboard</a>
+            <a class="dropdown-item"  [routerLink]="routes.profile">Profile Settings</a>
+            <a class="dropdown-item" (click)="logout()"    style="cursor: pointer;">Logout</a>
           </div>
         </li>
       </ul>

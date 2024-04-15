@@ -7422,7 +7422,7 @@ body table.listing-table.datatable {
 .action {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
 .listing-table .action-btn {

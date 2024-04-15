@@ -58,49 +58,37 @@
                             <h4>Profile Details</h4>
                         </div>
                         <div class="card-body">
-                            <div class="profile-photo">
-                                <div class="profile-img">
-                                    <div class="settings-upload-img">
-                                         <img src="assets/img/profile-img.jpg" alt="profile">
-                                    </div>
-                                     <div class="settings-upload-btn">
-                                        <input type="file" accept="image/*" name="image" class="hide-input image-upload" id="file">
-                                        <label for="file" class="file-upload">Upload New photo</label>
-                                     </div>
-                                     <span>Max file size: 10 MB</span>
-                                </div>
-                                <a href="javascript:void(0)" class="profile-img-del"><i class="feather-trash-2"></i></a>
-                            </div>
+
                             <div class="profile-form">
-                                 <form>
+                                 <form [formGroup]="profileForm" >
                                     <div class="form-group">
-                                        <label class="col-form-label">Your Full Name</label>
+                                        <label class="col-form-label">Your First Name</label>
                                         <div class="pass-group group-img">
                                             <span class="lock-icon"><i class="feather-user"></i></span>
-                                            <input type="text" class="form-control" value="John Doe">
+                                            <input type="text" class="form-control"  formControlName="firstName">
                                         </div>
                                     </div>
+                                   <div class="form-group">
+                                     <label class="col-form-label">Your Last Name</label>
+                                     <div class="pass-group group-img">
+                                       <span class="lock-icon"><i class="feather-user"></i></span>
+                                       <input type="text" class="form-control"  formControlName="lastName">
+                                     </div>
+                                   </div>
+
                                     <div class="row">
-                                         <div class="col-lg-6 col-md-6">
-                                            <div class="form-group">
-                                                <label class="col-form-label">Phone Number</label>
-                                                <div class="pass-group group-img">
-                                                    <span class="lock-icon"><i class="feather-phone-call"></i></span>
-                                                    <input type="tel" class="form-control" value="+44 215346 1223">
-                                                </div>
-                                            </div>
-                                         </div>
                                          <div class="col-lg-6 col-md-6">
                                             <div class="form-group">
                                                 <label class="col-form-label">Email Address</label>
                                                 <div class="group-img">
                                                     <i class="feather-mail"></i>
-                                                    <input type="text" class="form-control" value="johndoe@email.com">
+                                                    <input type="text" class="form-control"  formControlName="email">
                                                 </div>
                                             </div>
                                          </div>
                                     </div>
 
+                                   <button class="btn btn-primary"  (click)="updateProfile()"> Update Profile</button>
 
                                  </form>
                             </div>
@@ -114,19 +102,19 @@
                                 <h4>Change Password</h4>
                             </div>
                             <div class="card-body">
-                               <form>
+                               <form  [formGroup]="passwordForm">
                                     <div class="form-group">
                                         <label class="col-form-label">Current Password</label>
                                         <div class="pass-group group-img">
                                             <span class="lock-icon"><i class="feather-lock"></i></span>
-                                            <input type="password" class="form-control pass-input" placeholder="Password">
+                                            <input type="password" class="form-control pass-input" placeholder="Password" formControlName="currentPassword">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">New Password</label>
                                         <div class="pass-group group-img">
                                             <span class="lock-icon"><i class="feather-lock"></i></span>
-                                            <input type="password" class="form-control pass-input" value="..............">
+                                            <input type="password" class="form-control pass-input" value=".............." formControlName="newPassword">
 
                                             <span  [ngClass]="Toggledata == true ? 'toggle-password feather-eye' : 'toggle-password feather-eye-off'"  (click)="iconLogle()"></span>
                                         </div>
@@ -135,12 +123,18 @@
                                         <label class="col-form-label">Confirm New Password</label>
                                         <div class="pass-group group-img">
                                             <span class="lock-icon"><i class="feather-lock"></i></span>
-                                            <input type="password" class="form-control pass-input" value="..............">
+                                            <input type="password" class="form-control pass-input" value=".............." formControlName="confirmPassword">
                                             <span [ngClass]="Toggle == true ? 'toggle-password feather-eye' : 'toggle-password feather-eye-off'" (click)="icon()"></span>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary" type="submit"> Change Password</button>
+                                    <button class="btn btn-primary" (click)="updatePassword()"> Change Password</button>
                                </form>
+                              <div *ngIf="showAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
+                                Passwords do not match
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAlert = false">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
                             </div>
                         </div>
                     </div>
