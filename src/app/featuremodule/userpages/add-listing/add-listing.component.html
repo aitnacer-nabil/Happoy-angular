@@ -119,29 +119,10 @@
                         <div class="gallery-media">
                             <h6 class="media-title">Gallery</h6>
                             <div class="galleryimg-upload">
-                                 <div class="gallery-upload">
-                                    <img src="assets/img/gallery/gallerymedia-1.jpg" class="img-fluid" alt="">
-                                    <a href="javascript:void(0)" class="profile-img-del"><i class="feather-trash-2"></i></a>
-                                 </div>
-                                 <div class="gallery-upload">
-                                    <img src="assets/img/gallery/gallerymedia-2.jpg" class="img-fluid" alt="">
-                                    <a href="javascript:void(0)" class="profile-img-del"><i class="feather-trash-2"></i></a>
-                                 </div>
-                                 <div class="gallery-upload">
-                                    <img src="assets/img/gallery/gallerymedia-3.jpg" class="img-fluid" alt="">
-                                    <a href="javascript:void(0)" class="profile-img-del"><i class="feather-trash-2"></i></a>
-                                 </div>
-                                 <div class="gallery-upload">
-                                    <img src="assets/img/gallery/gallerymedia-4.jpg" class="img-fluid" alt="">
-                                    <a href="javascript:void(0)" class="profile-img-del"><i class="feather-trash-2"></i></a>
-                                 </div>
-                                 <div class="gallery-upload">
-                                    <img src="assets/img/gallery/gallerymedia-5.jpg" class="img-fluid" alt="">
-                                    <a href="javascript:void(0)" class="profile-img-del"><i class="feather-trash-2"></i></a>
-                                 </div>
+
                             </div>
                             <div class="settings-upload-btn">
-                                <input type="file" accept="image/*" name="image" class="hide-input image-upload" id="file2">
+                                <input type="file" accept="image/*" name="image" class="hide-input image-upload" id="file2" (change)="onFileSelected($event)">
                                 <label for="file2" class="file-upload">Upload File</label>
                             </div>
                         </div>
