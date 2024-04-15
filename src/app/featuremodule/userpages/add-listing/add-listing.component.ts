@@ -39,8 +39,7 @@ export class AddListingComponent implements OnInit {
   categoryId: string = '';
   attributeValues: { [key: string]: string } = {};
   public user: User | null;
-  private imageSrc: any;
-
+  imageFiles: File[] = [];
   constructor(
     private categoriesService: CategoriesService,
     private AttributeService: AttributeService,
@@ -90,6 +89,8 @@ export class AddListingComponent implements OnInit {
   }
 
   submitAds() {
+    if (this.basicInfoForm.invalid) return;
+    if(this.imageFiles.length === 0) return;
     //show form data
     //create a new listing object
     //get all vlue from form
@@ -115,11 +116,15 @@ export class AddListingComponent implements OnInit {
       city: 'Dhaka',
       userId: this.user!!.id,
       attributeValue: attributeValues
-
-
     };
-    console.log('Ad: ', ad);
-    this.adsService.saveAdvertisement(ad).subscribe(response => {
+
+    const formData = new FormData();
+    formData.append('ad', JSON.stringify(ad));
+    this.imageFiles.forEach((file, index) => {
+      formData.append('files', file, file.name);
+    });
+    console.log('Ad: ', formData);
+    this.adsService.saveAdvertisement(formData).subscribe(response => {
       console.log('Response: ', response);
       this.router.navigate([routes.mylisting]);
 
@@ -128,7 +133,7 @@ export class AddListingComponent implements OnInit {
   }
 
 // Declare a property to hold the list of image files
-  imageFiles: File[] = [];
+
 
 
   onFileSelected(event: any) {

@@ -7,7 +7,8 @@ import {Router} from '@angular/router';
 import * as AOS from 'aos';
 import {CategoriesService} from "../../../service/listing/categories.service";
 import {Category} from "../../../service/listing/Category";
-
+import {AdResponse} from "../../../service/feeds/AdResponse";
+import {FeedsService} from "../../../service/feeds/feeds.service";
 @Component({
   selector: 'app-home1',
   templateUrl: './home1.component.html',
@@ -26,12 +27,17 @@ export class Home1Component implements OnInit {
   public pricing: any = [];
   public latestads: any = [];
   public universitiesCompanies: any = [];
+  public ads: AdResponse[] = [];
 
-  constructor(private DataService: DataService, public router: Router, private categoriesService: CategoriesService) {
+  constructor(private DataService: DataService,
+              public router: Router,
+              private categoriesService: CategoriesService,
+              private feedsService: FeedsService) {
 
     (this.featuredads = this.DataService.featuredadsList),
       (this.latestads = this.DataService.latestadsList)
     this.getCategories();
+    this.getAds();
 
 
   }
@@ -86,5 +92,14 @@ export class Home1Component implements OnInit {
       console.log('categories : {}', categories);
       this.categories = categories;
     });
+  }
+
+  getAds(){
+    this.feedsService.getFeeds().subscribe(response => {
+      console.log('ads : {}', response);
+      this.ads = response;
+    }
+    );
+
   }
 }

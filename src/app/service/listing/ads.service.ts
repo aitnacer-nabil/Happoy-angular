@@ -12,7 +12,7 @@ export class AdsService {
 
   constructor(private http: HttpClient) { }
 
-  saveAdvertisement(ad: Advertisement): Observable<Advertisement | HttpErrorResponse> {
+  saveAdvertisement(ad: FormData): Observable<Advertisement | HttpErrorResponse> {
     return this.http.post<Advertisement | HttpErrorResponse>(`${this.apiUrl}save`, ad);
   }
 }

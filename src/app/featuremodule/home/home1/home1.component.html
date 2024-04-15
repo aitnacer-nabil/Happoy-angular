@@ -109,14 +109,14 @@
           [options]="featuredadsOwlOptions"
           class="featured-slider grid-view"
         >
-          <ng-container *ngFor="let slide of featuredads">
+          <ng-container *ngFor="let ad of ads">
             <ng-template carouselSlide>
               <div class="card aos" data-aos="fade-up">
                 <div class="blog-widget">
                   <div class="blog-img">
                     <a [routerLink]="routes.servicedetails">
                       <img
-                        [src]="slide.img1"
+                        [src]="ad.media[0].imageUrl"
                         class="img-fluid"
                         alt="blog-img"
                       />
@@ -126,26 +126,24 @@
                   <div class="bloglist-content">
                     <div class="card-body">
                       <div class="blogfeaturelink">
-
-
                       </div>
                       <h6>
                         <a [routerLink]="routes.servicedetails">{{
-                          slide.details
+                          ad.ad.title
                         }}</a>
                       </h6>
                       <div class="blog-location-details">
                         <div class="location-info">
-                          <i class="feather-map-pin"></i> {{ slide.map }}
+                          <i class="feather-map-pin"></i> {{ ad.ad.city}}
                         </div>
                         <div class="location-info">
                           <i class="fa-regular fa-calendar-days"></i>
-                          {{ slide.date }}
+                          {{  ad.ad.createdAt | date: 'dd/MM/yyyy' }}
                         </div>
                       </div>
                       <div class="amount-details">
                         <div class="amount">
-                          <span class="validrate">{{ slide.amount }}</span>
+                          <span class="validrate">{{  ad.ad.price }}</span>
 
                         </div>
 

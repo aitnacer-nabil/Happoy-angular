@@ -78,17 +78,17 @@
                              </tr>
                              </thead>
                              <tbody>
-                             <tr *ngFor="let data of electronics">
+                             <tr *ngFor="let ad of ads">
                                  <td>
-                                    <div class="listingtable-img"> <a [routerLink]="routes.servicedetails"><img class="img-fluid avatar-img" [src]="data.img" alt=""></a></div>
+                                    <div class="listingtable-img"> <a [routerLink]="routes.servicedetails"><img class="img-fluid avatar-img"  [src]="ad.media[0].imageUrl"  lt=""></a></div>
                                  </td>
                                  <td>
-                                     <h6><a [routerLink]="routes.servicedetails">{{data. details}}</a></h6>
-                                     <div class="listingtable-rate"><a href="javascript:void(0)" class="cat-icon"><i class="fa-regular fa-circle-stop"></i> {{data.select}}</a><span class="fixed-amt">{{data.newamount}}</span></div>
+                                     <h6><a [routerLink]="routes.servicedetails">{{ad.ad.title}}</a></h6>
+                                     <div class="listingtable-rate"><a href="javascript:void(0)" class="cat-icon"><i class="fa-regular fa-circle-stop"></i> {{ad.ad.category}} </a><span class="fixed-amt">{{ad.ad.price}}</span></div>
 
                                  </td>
-                                 <td><span [ngClass]="{'unpublish': data.status === 'Un Published' }"
-                                    class="status-text">{{data.status}}</span></td>
+                                 <td><span [ngClass]="{'unpublish': ad.ad.status === 'UnPublished' }"
+                                    class="status-text">{{ad.ad.status}}</span></td>
                                  <td>
                                     <div class="action">
                                         <a href="javascript:void(0)" class="action-btn btn-view"><i class="feather-eye"></i></a>

@@ -102,11 +102,11 @@
           </div>
         </div>
         <div class="blog-listview">
-          <div class="card" *ngFor="let slide of listsidebar">
+          <div class="card" *ngFor="let ad of ads">
             <div class="blog-widget">
               <div class="blog-img">
                 <a [routerLink]="routes.servicedetails">
-                  <img [src]="slide.img1" class="img-fluid" alt="blog-img" />
+                  <img [src]="ad.media[0].imageUrl" class="img-fluid" alt="blog-img" />
                 </a>
 
               </div>
@@ -115,17 +115,17 @@
 
                   <h6>
                     <a [routerLink]="routes.servicedetails">{{
-                      slide.details
+                      ad.ad.title
                     }}</a>
                   </h6>
                   <div class="blog-location-details">
                     <div class="location-info">
-                      <i class="feather-map-pin"></i> {{ slide.map }}
+                      <i class="feather-map-pin"></i> {{ ad.ad.city }}
                     </div>
                   </div>
                   <div class="amount-details">
                     <div class="amount">
-                      <span class="validrate">{{ slide.amount }}</span>
+                      <span class="validrate">{{ ad.ad.price }}</span>
 
                     </div>
                     <a >View details</a>
