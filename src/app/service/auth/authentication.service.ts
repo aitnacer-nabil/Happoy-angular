@@ -12,7 +12,7 @@ import {UpdatePassword} from "../user/UpdatePassword";
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private host = environment.apiUrl;
+  host = environment.apiUrl;
   private token: string | null = null;
   private user: User | null = null;
   private loggedIn: boolean = false;
@@ -41,16 +41,12 @@ export class AuthenticationService {
     return this.http.post<User | HttpErrorResponse>(`${this.host}keycloak/user`, user, {observe: 'response'});
   }
   public update(user: UpdateProfile): Observable<User | HttpErrorResponse> {
-    let headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.getToken(),
-    });
-    return this.http.put<User | HttpErrorResponse>(`${this.host}keycloak/user`, user, {headers: headers});
+
+    return this.http.put<User | HttpErrorResponse>(`${this.host}keycloak/user`, user);
   }
   public updatePassword(user: UpdatePassword): Observable<User | HttpErrorResponse> {
-    let headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.getToken(),
-    });
-    return this.http.put<User | HttpErrorResponse>(`${this.host}keycloak/user/password`, user, {headers: headers});
+
+    return this.http.put<User | HttpErrorResponse>(`${this.host}keycloak/user/password`, user);
   }
   public logout(): void {
     localStorage.removeItem('token');
@@ -61,10 +57,10 @@ export class AuthenticationService {
 
   public isAuthenticated(): boolean {
     this.loadToken();
-    console.log(this.token);
+    // console.log(this.token);
     if (this.token !== null && this.token !== ' ' && !this.jwtHelper.isTokenExpired(this.token)) {
-      console.log('Token is not expired')
-      console.log('Token is not null');
+      // console.log('Token is not expired')
+      // console.log('Token is not null');
       return true;
     }
     this.logout();
@@ -103,10 +99,8 @@ export class AuthenticationService {
 
 
   public getUser(id:string): Observable<HttpResponse<User> | HttpErrorResponse> {
-    let headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.getToken(),
-    });
 
-    return this.http.get<HttpResponse<User>>(`${this.host}keycloak/users/${id}`, {headers: headers});
+
+    return this.http.get<HttpResponse<User>>(`${this.host}keycloak/users/${id}`);
   }
 }

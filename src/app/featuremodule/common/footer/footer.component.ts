@@ -11,11 +11,10 @@ import { routes } from 'src/app/core/helpers/routes/routes';
 export class FooterComponent implements OnInit {
   public routes = routes;
   constructor(public router: Router){
-
   }
+
   ngOnInit() {
     AOS.init({disable:'mobile'});
-    
   }
-  
+
 }
